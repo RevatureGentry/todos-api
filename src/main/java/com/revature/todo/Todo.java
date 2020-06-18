@@ -1,5 +1,7 @@
 package com.revature.todo;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -14,24 +16,29 @@ import java.util.StringJoiner;
 /**
  * @author William Gentry
  */
+@JacksonXmlRootElement
 @Entity
 public class Todo {
 
 	@Id
 	@GeneratedValue
+	@JacksonXmlProperty
 	@ApiModelProperty(notes = "Unique Identifier for Todo")
 	private long id;
 
 	@Column(name = "title")
+	@JacksonXmlProperty
 	@ApiModelProperty(notes = "The purpose of the Todo - what you need to do")
 	private String title;
 
 	@CreationTimestamp
 	@Column(name = "created_on")
+	@JacksonXmlProperty
 	@ApiModelProperty(notes = "Automatically set at persistence")
 	private LocalDate createdOn;
 
 	@Column(name = "completed")
+	@JacksonXmlProperty
 	@ApiModelProperty(notes = "Whether the Todo has been completed")
 	private boolean completed;
 
