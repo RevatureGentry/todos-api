@@ -17,7 +17,7 @@ spec:
       containers:
         - name: todos-api
           image: gcr.io/caliber-dev-254513/todos-api:latest
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
               name: http
