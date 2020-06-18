@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todos-api
+  namespace: todos-api
+  labels:
+    app: todos
+spec:
+  selector:
+    matchLabels:
+      app: todos
+  template:
+    metadata:
+      labels:
+        app: todos
+    spec:
+      containers:
+        - name: todos-api
+          image: gcr.io/caliber-dev-254513/todos-api:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              port: http
+              path: /actuator/health
+            initialDelaySeconds: 15
+          readinessProbe:
+            httpGet:
+              port: http
+              path: /actuator/health
+            initialDelaySeconds: 20

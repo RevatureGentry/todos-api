@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: todos-api
+management:
+  health:
+    probes:
+      enabled: true
