@@ -11,5 +11,9 @@ spec:
       protocol: TCP
       targetPort: http
       name: http
+    - port: 8080
+      protocol: TCP
+      targetPort: http
+      name: nothttp
   selector:
     app: todos

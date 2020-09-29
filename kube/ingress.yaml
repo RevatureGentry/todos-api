@@ -14,6 +14,6 @@ spec:
           - path: /
             backend:
               serviceName: todos-api-svc
-              servicePort: http
+              servicePort: 80
 
 
