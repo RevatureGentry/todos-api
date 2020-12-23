@@ -45,7 +45,7 @@ pipeline {
    )}"""
     GCR_BASE_URL = 'https://gcr.io'
     GCR_REPO = 'gcr.io/caliber-dev-254513/todos-api'
-    SERVICE_NAME = 'Category'
+    SERVICE_NAME = 'Todos API'
   }
   stages {
     stage('Testing') {
